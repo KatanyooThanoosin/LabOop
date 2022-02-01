@@ -1,3 +1,4 @@
+//Use Account class from lab5_1
 import java.util.Scanner;
 
 public class Lab6_6 {
