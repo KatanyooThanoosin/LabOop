@@ -5,14 +5,18 @@ public class Account {
     // Attributes
     private int id;
     private double balance;
-    private double annualInterestRate;
+    private double annualInterestRate = 0;
     private Date dateCreated;
 
     // Constructor
-    Account() {
+    public Account() {
         this.id = 0;
         this.balance = 0;
-        this.annualInterestRate = 0;
+        this.dateCreated = new Date();
+    }
+    public Account(int id, double balance){
+        this.id = id;
+        this.balance = balance;
         this.dateCreated = new Date();
     }
 
@@ -54,10 +58,24 @@ public class Account {
     }
 
     public void withdraw(double amount) {
-        this.balance -= amount;
+        if(amount < 0 || this.balance - amount < 0){
+            System.out.println("ERROR::CANNOT WITHDRAW WITH "+amount);
+        }
+        else this.balance -= amount;
     }
 
     public void deposit(double amount) {
-        this.balance += amount;
+        if(amount < 0){
+            System.out.println("ERROR::CANNOT DEPOSIT WITH "+amount);
+        }
+        else this.balance += amount;
+    }
+
+    @Override
+    public String toString(){
+        return "Account{id="+this.id+
+        ", balance="+this.balance+
+        ", annualInterestRate="+this.annualInterestRate+
+        ", dateCreated="+this.dateCreated+"}";
     }
 }
