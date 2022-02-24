@@ -8,14 +8,18 @@ public class Lab8_1 {
         System.out.print("Enter side: ");
         side = in.nextDouble();
         while (side <= 0) {
-            System.out.println("ERROR::Sides should be positive.\nPlease enter side again: ");
+            System.out.print("ERROR::Sides should be positive.\nPlease enter side again: ");
             side = in.nextDouble();
         }
 
-        System.out.print("Enter color: ");
-        String color = in.next();
         System.out.print("Enter is the triangle filled?: ");
         Boolean filled = in.nextBoolean();
+        String color;
+        if(filled){
+            System.out.print("Enter color: ");
+            color = in.next();
+        }
+        else color = null;
         Triangle triangle = new Triangle(color, filled, side);
 
         System.out.println("Area of triangle is " + triangle.getArea());
