@@ -24,13 +24,13 @@ public class BMI {
 
     public String getInterpretation() {
         if (this.getBMI() < 18.5) {
-            return "Underweight";
+            return "underweight";
         } else if (this.getBMI() < 25.0) {
-            return "Normal";
+            return "normal weight";
         } else if (this.getBMI() < 30.0) {
-            return "Overweight";
+            return "overweight";
         } else {
-            return "Obese";
+            return "obese";
         }
     }
 }
