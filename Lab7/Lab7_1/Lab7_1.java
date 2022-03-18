@@ -6,15 +6,18 @@ public class Lab7_1 {
         System.out.println("Checking Account");
         System.out.print("Overdraft limit: ");
         double limit = in.nextDouble();
-        CheckingAccount checkingAccount = new CheckingAccount();
-        checkingAccount.setLimit(limit);
-        checkingAccount.setBalance(5000);
-        System.out.println("Balance is " + checkingAccount.getBalance());
-        System.out.print("Withdraw: ");
-        double amount = in.nextDouble();
-        checkingAccount.withdraw(amount);
-        System.out.println("Balance is " + checkingAccount.getBalance());
-        System.out.println("This account was created at " + checkingAccount.getDateCreated());
+        if(limit < 0)System.out.println("Error::LIMIT CANNOT LESS THAN 0");
+        else{
+            CheckingAccount checkingAccount = new CheckingAccount();
+            checkingAccount.setLimit(limit);
+            checkingAccount.setBalance(5000);
+            System.out.println("Balance is " + checkingAccount.getBalance());
+            System.out.print("Withdraw: ");
+            double amount = in.nextDouble();
+            checkingAccount.withdraw(amount);
+            System.out.println("Balance is " + checkingAccount.getBalance());
+            System.out.println("This account was created at " + checkingAccount.getDateCreated());
+        }
         in.close();
     }
 }
